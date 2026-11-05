@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# local toolchain / caches from the development session
+.pnpm-store/
+.tools/
+.ref/
+.dev/
+
+# publishing scratch (holds credentials; never commit)
+.publish/
+
+# build artifacts
+*.tgz
+*.log
+.DS_Store

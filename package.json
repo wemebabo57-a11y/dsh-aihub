@@ -1,0 +1,69 @@
+{
+  "name": "dsh-aihub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AI Hub：在设置里把多个兼容 OpenAI / Anthropic 的供应方聚合成 aihub 模型，某个供应方接不上时自动切换到下一个。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wemebabo57-a11y/dsh-aihub.git"
+  },
+  "homepage": "https://github.com/wemebabo57-a11y/dsh-aihub#readme",
+  "bugs": {
+    "url": "https://github.com/wemebabo57-a11y/dsh-aihub/issues"
+  },
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./client": "./client/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "src",
+    "client",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "llm-provider",
+    "aggregator"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-general"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build:ui": "node scripts/build-ui.mjs",
+    "check": "node scripts/build-ui.mjs --check && node scripts/check-ui.mjs",
+    "test": "node --test --test-isolation=none \"test/host/*.test.mjs\"",
+    "verify": "npm run check && npm test"
+  }
+}

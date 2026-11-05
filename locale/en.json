@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "AI Hub",
+    "description": "Aggregate several API providers into one aihub model: create a model in Settings, list its providers, and requests fail over automatically."
+  }
+}

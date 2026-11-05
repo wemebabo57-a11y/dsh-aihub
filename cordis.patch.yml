@@ -1,0 +1,9 @@
+# dsh-aihub bundle patch.
+#
+# 一行 insert 挂载 Host 半身；浏览器半身由 package.json 的 dsh.client 声明，
+# 并绑定在 name 为裸包名的这一行上（子路径行不携带半身）。
+- insert:
+    - id: aihub
+      name: 'dsh-aihub'
+      config:
+        state: ''
